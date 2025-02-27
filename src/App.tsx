@@ -4,6 +4,7 @@ import { useCharacters } from "./hooks/useCharacters"; // Import the custom hook
 import UserList from "./components/CharacterList";
 import FavoriteList from "./components/FavoriteList";
 import { useDebounce } from './hooks/useDebounce'
+import {PICSUM_URL} from './constants'
 import "./App.css";
 const App = () => {
   const [favorites, setFavorites] = useState<any[]>([]);
@@ -11,13 +12,12 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [clearedSearch, setClearedSearch] = useState(false);
   const imageCache = useRef(new Map()); // Persistent storage for images
-
   // Function to get or assign an image
   const getCharacterImage = (character: { name: any; }) => {
     if (!imageCache.current.has(character.name)) {
       imageCache.current.set(
         character.name,
-        `https://picsum.photos/200/300?random=${Math.floor(Math.random() * 1000)}`
+        `${PICSUM_URL}=${Math.floor(Math.random() * 1000)}`
       );
     }
     return imageCache.current.get(character.name);
@@ -45,11 +45,9 @@ const App = () => {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    console.log('Search Term!!:', value, value.length);
-  
     setSearchTerm(value);
     setCurrentPage(1); // Reset pagination on new search
-  
+
     // If the search term is empty, trigger clearing of search results
     if (value.length === 0) {
       setClearedSearch(true); // Clear search results
@@ -57,15 +55,12 @@ const App = () => {
       setClearedSearch(false); // Reset cleared state when typing
     }
   };
-  
+
 
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current) {
         const bottom = containerRef.current.scrollHeight <= (containerRef.current.scrollTop + containerRef.current.clientHeight) + 100;
-
-        console.log("Scroll Bottom: ", bottom, loading, currentPage, totalPagesNum);
-
         if (bottom && !loading && currentPage < totalPagesNum) {
           setCurrentPage(prevPage => prevPage + 1);  // Increment page to load next set of data
         }
