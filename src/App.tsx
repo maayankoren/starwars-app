@@ -1,10 +1,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useCharacters } from "./hooks/useCharacters"; // Import the custom hook
-import UserList from "./components/CharacterList";
+import CharacterList from "./components/CharacterList";
 import FavoriteList from "./components/FavoriteList";
 import { useDebounce } from './hooks/useDebounce'
 import {PICSUM_URL} from './constants'
+import starWarsImage from './assets/images/starwars.png';
+
 import "./App.css";
 const App = () => {
   const [favorites, setFavorites] = useState<any[]>([]);
@@ -82,6 +84,8 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* Title Section with Image */}
+    
       <div className="container" >
         {/* Loading Spinner */}
         {loading && debouncedSearchTerm && (
@@ -99,14 +103,14 @@ const App = () => {
         {/* User and Favorite Lists */}
         <div style={{ display: "flex", gap: "20px", width: "100%", height: "100%" }}>
           <div className="main-content" ref={containerRef}>
-            <UserList
+            <CharacterList
               users={processedCharacters}
               onToggleFavorite={toggleFavorite}
               searchTerm={debouncedSearchTerm}
               favorites={favorites}
             />
           </div>
-
+          
           <div className="favorites-container">
             <FavoriteList favorites={favorites} onToggleFavorite={toggleFavorite} />
           </div>

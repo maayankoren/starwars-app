@@ -44,14 +44,7 @@ button:hover {
 
 
 /* Container for the lists */
-.container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  gap: 20px;
-  flex-wrap: wrap;  /* Allow the cards to wrap into the next line if needed */
-}
+
 
 .favorites-container,
 .main-content {

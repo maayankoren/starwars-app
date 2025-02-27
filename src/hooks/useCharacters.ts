@@ -17,31 +17,20 @@ export const useCharacters = (
 
       if (searchTerm && !clearedSearch) {
         // Search functionality
-
         const { results } = await fetchFilteredCharacters(searchTerm);
-
-      
-
         setCharacters(results);
         setTotalPages(1); // No pagination needed for search
       } else {
         if (!searchTerm)
         // If clearedSearch is true, reset the character list and fetch the default list
         {
-
           if (page <= totalPagesNum) {
-
-
             const { results, totalPages } = await fetchCharacters(page);
-
-
-
             if (page === 1) {
               setCharacters(results); // Replace data if resetting to page 1
             } else {
               setCharacters(prev => [...prev, ...results]); // Append only when paginating
             }
-
             setTotalPages(totalPages);
           }
         }

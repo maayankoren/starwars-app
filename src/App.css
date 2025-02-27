@@ -7,7 +7,7 @@
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
@@ -15,7 +15,7 @@
 }
 
 .favorites-container {
-  width: 50vw; /* Fixed width for the favorites section */
+  width: 100%; /* Fixed width for the favorites section */
   padding: 10px;
   border-left: 2px solid #ddd; /* Border between favorites and main content */
   overflow-y:auto ;/* Allow scrolling if there are too many favorites */
@@ -24,7 +24,7 @@
 
 
 .container {
-  display: flex;
+  /* display: flex; */
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
@@ -37,7 +37,11 @@
   padding: 20px;
   max-width: 800px; /* Limit the width of the main content */
   flex-flow: wrap;
-  width: 50vw;
+  /* width: 50vw; */
   overflow-y: auto; /* Allow scrolling if necessary */
 
+}
+
+.title-container{
+  height:10vh
 }

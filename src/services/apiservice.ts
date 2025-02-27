@@ -13,8 +13,6 @@ export const fetchCharacters = async (page: number) => {
     totalPages: Math.ceil(data.count / 10),  // Assuming 10 characters per page (standard pagination in SWAPI)
   };
 };
-// src/services/apiservice.ts (assuming you have this file for API services)
-
 
 
 export const fetchFilteredCharacters = async (searchTerm: string) => {

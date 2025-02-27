@@ -9,7 +9,9 @@ type FavoriteListProps = {
 
 const FavoriteList: React.FC<FavoriteListProps> = ({ favorites, onToggleFavorite }) => {
   return (
+    <div>Favorite
     <div className="main-content">
+
       {favorites.map((favorite) => (
         <CharacterCard
           key={favorite.id}
@@ -18,6 +20,7 @@ const FavoriteList: React.FC<FavoriteListProps> = ({ favorites, onToggleFavorite
           isFavorite={true}
         />
       ))}
+    </div>
     </div>
   );
 };

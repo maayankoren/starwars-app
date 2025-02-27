@@ -26,17 +26,14 @@ type ModalProps = {
 
 const CharacterModal: React.FC<ModalProps> = ({ isOpen, onClose, character }) => {
     const [homeworldData, setHomeworldData] = useState<any>(null); // State to hold homeworld data
-    const [loading, setLoading] = useState<boolean>(false); // Loading state
 
     // Fetch homeworld data when modal opens
     useEffect(() => {
         if (isOpen && character && character.homeworld) {
-            setLoading(true); // Set loading to true while fetching
             const getHomeworldData = async () => {
                 try {
                     let res = await fetchHomeworldData(character.homeworld);
                     setHomeworldData(res.results); // Set homeworld data in the state
-                    setLoading(false); // Set loading to false once done
 
                 } catch (error) {
                     console.error("Error fetching homeworld data:", error);

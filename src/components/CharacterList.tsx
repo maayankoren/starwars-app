@@ -12,7 +12,7 @@ type CharacterProps = {
 const CharacterList: React.FC<CharacterProps> = ({ users, onToggleFavorite, favorites ,searchTerm}) => {
   return (
     <div className="user-list">
-      {/* <SearchBar onSearch={onSearch} searchTerm={searchTerm}/> */}
+      Character List
       <div className="main-content">
         {users.map((user) => {
           const isFavorite = favorites.some((fav) => fav.name === user.name);
