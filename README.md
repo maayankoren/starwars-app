@@ -25,8 +25,8 @@ Ensure you have the following installed:
 ### **Steps to Run**
 1. **Clone the Repository**
    ```sh
-   git clone <your-repo-url>
-   cd <your-project-folder>
+   git clone https://github.com/maayankoren/starwars-app.git
+   cd starwars-app
    ```
 
 2. **Install Dependencies**
